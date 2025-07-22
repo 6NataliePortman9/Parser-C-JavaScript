@@ -21,7 +21,7 @@ analize web page, catch necessary parameters and write them in DataBase.
 
 1. Clone the repository:
  
-  git clone https://github.com/6NataliePortman9/Parser.git
+  git clone https://github.com/6NataliePortman9/Parser-C-JavaScript.git
   cd Parser
 
 2. Build and run the C# project:
