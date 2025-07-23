@@ -20,31 +20,39 @@ analize web page, catch necessary parameters and write them in DataBase.
 ### Installation
 
 1. Clone the repository:
- 
-  git clone https://github.com/6NataliePortman9/Parser-C-JavaScript.git 
-  
-  cd Parser
+
+git clone https://github.com/6NataliePortman9/Parser-C-JavaScript.git  
+
+cd Parser
 
 2. Build and run the C# project:
+cd CS_part
 
-  cd CS_part
-  dotnet build
-  dotnet run
+dotnet build
+
+dotnet run
 
 3. (Optional) Run the JavaScript part:
 
-  cd ../JS_part
-  npm install
-  node app.js
+cd ../JS_part
+
+npm install
+
+node app.js
 
   ### Usage
-1. Make a local DB
-2. In C# you must enter a direction to you DB in MainWindow, EditQuestionWindow and AddQuestionWindow in 25 rows.
+1. Make a local DB with appropriate tables and fields
+2. In C#  part:
+  * Set a direction to you DB in MainWindow, EditQuestionWindow and AddQuestionWindow in 25 line.
+  * Change Queries in MainWindow line 45 / 177 / 193.
+  * Change Queries in EditQuestionWindow line 80 / 225.
+  * Change Queries in AddQuestionWindow line 78 / 126.
 3. In the JS part:
   * Set the database path on line 5
+  * Change Queries in line 134 / 135
   * Set the browser executable path on line 13
   * Set the URL of the webpage to be parsed on line 20
   * Set your email account on line 60
   * Set your email password on line 64
-8. Customize the button IDs if needed to match your target webpage structure.
+4. Customize the button IDs if needed to match your target webpage structure.
   
