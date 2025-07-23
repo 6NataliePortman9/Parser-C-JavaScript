@@ -1,0 +1,9 @@
+# === CS_part ===
+/CS_part/TDAPZ_Q&A/[Bb]in/
+/CS_part/TDAPZ_Q&A/[Oo]bj/
+*.user
+*.suo
+*.cache
+*.pdb
+*.log
+.vs/

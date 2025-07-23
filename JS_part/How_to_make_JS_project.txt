@@ -1,0 +1,136 @@
+!!! Змінюємо політику виконання скріптів для PowerShell !!!
+
+	Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+1. Зробити загальну папку у якій будуть лежати усі Node JS проекти.
+   Можна використати вже існуючу папку наприклад VScodeParser.
+
+2. ВЗапусти PowerShell від імені адміністратора та ввести таку команду щоб
+   відкрити директорію загальної папки для проектів:
+
+	 cd C:\VScodeParser
+
+3. У PowerShell відкривається директорія загальної папки VScodeParser
+   у якій ми маємо створити папку нового проекту, наприклад TDAPZParser
+
+	mkdir TDAPZParser
+
+4. Після створення папки проекту у PowerShell виводиться інформація про цю папку.
+	
+				Directory: C:\VScodeParser
+
+
+		Mode                 LastWriteTime         Length Name
+		----                 -------------         ------ ----
+		d-----        21.04.2025     15:04                TDAPZParser
+
+5. У PowerShell відкриваємо створену папку нашого проекту
+
+	cd TDAPZparser
+
+6. Вводимо наступну команду щоб зробити packaje.jcon
+
+	npm init -y
+
+7. Після створення папки проекту у PowerShell виводиться інформація про packaje.jcon
+
+	Wrote to C:\VScodeParser\TDAPZparser\package.json:
+
+	{
+  	"name": "tdapzparser",
+  	"version": "1.0.0",
+  	"main": "index.js",
+  	"scripts": {
+    	"test": "echo \"Error: no test specified\" && exit 1"
+  	},
+  	"keywords": [],
+  	"author": "",
+  	"license": "ISC",
+  	"description": ""
+	}
+
+8. Далі необхідно встановити бібліотеку "papeteer" за допомогою такої команди
+
+	npm install puppeteer
+
+9. Після підключання бібліотеки "papeteer" до нащого проекту у PowerShell 
+    виводиться наступні інформація
+
+	added 97 packages, and audited 98 packages in 5s
+
+	7 packages are looking for funding
+  	run `npm fund` for details
+
+	found 0 vulnerabilities
+
+10. створюємо index.js файл у якому буде міститися наша програма, за допомогою команди
+
+  	code index.js
+
+11. У VS code бачимо що з'явився файл index.js, у який записуємо нашу програму. 
+    Зберігаємо зміни у файлі (CTRL+S).
+
+ 	code index.js
+
+12. Знову відкриваємо PowerShell де вводимо команду щоб виконати нашу програму
+
+	node index.js
+
+13. Дивимось на результат відпрацювання програми. Нижче наведено роботу з PowerShell 
+
+
+
+PS C:\Users\Nikita> cd C:\VScodeParser
+PS C:\VScodeParser> mkdir TDAPZParser
+
+
+    Directory: C:\VScodeParser
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        21.04.2025     15:04                TDAPZParser
+
+
+PS C:\VScodeParser> cd TDAPZparser
+PS C:\VScodeParser\TDAPZparser> npm init -y
+Wrote to C:\VScodeParser\TDAPZparser\package.json:
+
+{
+  "name": "tdapzparser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+PS C:\VScodeParser\TDAPZparser> npm install puppeteer
+
+added 97 packages, and audited 98 packages in 5s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\VScodeParser\TDAPZparser> code index.js
+PS C:\VScodeParser\TDAPZparser> node index.js
+Скріншот збережено як screenshot.png
+PS C:\VScodeParser\TDAPZparser>
+
+
+Примітки:
+
+cd C:\VScodeParser
+
+cd TDAPZparser
+
+cd C:\VScodeParser\TDAPZparser
+
+node index.js

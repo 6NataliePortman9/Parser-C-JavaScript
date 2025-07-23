@@ -1,0 +1,310 @@
+﻿<Window x:Class="TDAPZ_Q_A.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TDAPZ_Q_A"
+        mc:Ignorable="d"
+        Height="500" Width="800"
+        MinHeight="500" MinWidth="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <ImageBrush ImageSource="Images\wallpaperflare.com_wallpaper.jpg" Stretch="Fill"/>
+    </Window.Background>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="434.66"/>
+
+        </Grid.RowDefinitions>
+
+        <!-- Labels and Textboxes for user input -->
+        <Label x:Name="TDPAZQA" Content="TDAPZ Q and A" FontSize="40"  Margin="222,94,0,286" RenderTransformOrigin="1.537,0.51" HorizontalAlignment="Left" Width="364"  FontWeight="Bold" FontFamily="Perpetua Titling MT" BorderBrush="#FFF7F5F5" Background="#00000000">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222233" Offset="0.264"/>
+                    <GradientStop Color="#FF080879" Offset="0.565"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+
+        <Label x:Name="LabelQuestion" Content="Question" FontSize="19"  FontWeight="Bold" Margin="225,187,0,214" HorizontalAlignment="Left" Width="116" FontFamily="Perpetua Titling MT" RenderTransformOrigin="0.675,0.616"/>
+        <TextBox x:Name="txtQuestion" Margin="371,184,0,209" FontSize="14" Padding="5" HorizontalAlignment="Left" Width="210" PreviewKeyDown="txtQuestion_PreviewKeyDown" GotFocus="txtQuestion_GotFocus">
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10" BorderBrush="#FFE84141" BorderThickness="2" Background="#FF76EC72">
+                        <ScrollViewer Margin="5" x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <Label x:Name="LabelAnswer" Content="Answer" FontSize="19"  FontWeight="Bold" RenderTransformOrigin="-2.008,0.248" Margin="290,246,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="102" FontFamily="Perpetua Titling MT"/>
+        <TextBox x:Name="txtAnswer" Margin="427,238,0,0" FontSize="14" Padding="5" HorizontalAlignment="Left" Width="95" Height="44" VerticalAlignment="Top">
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10" BorderBrush="#FFE84141" BorderThickness="2" Background="#FF76EC72">
+                        <ScrollViewer Margin="5" x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <!-- Buttons -->
+
+        <Button x:Name="btmFindQuestion" Content="Find" Margin="0,358,0,0" FontSize="25" Foreground="Black"
+        BorderBrush="#FF615DE4" BorderThickness="3" FontFamily="Perpetua Titling MT"
+        Click="FindQuestion_Click" RenderTransformOrigin="0.4,0.135"
+        HorizontalAlignment="Center" Width="152" Height="49" VerticalAlignment="Top" FontWeight="Bold">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF083FAD" Offset="0.11"/>
+                                <GradientStop Color="#FFB1C5ED" Offset="0.846"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FF615DE4"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="20" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Зміна кольору при наведенні -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF1857DD" Offset="0.11"/>
+                                                    <!-- Світліший відтінок -->
+                                                    <GradientStop Color="#FFC6D8FA" Offset="0.846"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="btmAddQuestion" Content="Add" Margin="731,10,0,0" FontSize="15" 
+        Foreground="Black" BorderBrush="#FF615DE4" BorderThickness="3" 
+        FontFamily="Perpetua Titling MT" Click="AddQuestion_Click" 
+        HorizontalAlignment="Left" Width="48" Height="47" VerticalAlignment="Top" 
+        FontWeight="Bold">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF37A749" Offset="0.676"/>
+                                <GradientStop Color="#FFC74466" Offset="0.201"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FF615DE4"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" CornerRadius="20" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Зміна кольору при наведенні -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF5A3C23" Offset="0.11"/>
+                                                    <GradientStop Color="#FF40A524" Offset="0.846"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="btmEditQuestion" Content="Edit" Margin="731,70,0,0" FontSize="15" 
+ Foreground="Black" BorderBrush="#FF615DE4" BorderThickness="3" 
+ FontFamily="Perpetua Titling MT" Click="EditQuestion_Click" 
+ HorizontalAlignment="Left" Width="48" Height="47" VerticalAlignment="Top" 
+ FontWeight="Bold">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF37A749" Offset="0.676"/>
+                                <GradientStop Color="#FFC74466" Offset="0.201"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FF615DE4"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" CornerRadius="20" 
+                         BorderBrush="{TemplateBinding BorderBrush}" 
+                         BorderThickness="{TemplateBinding BorderThickness}" 
+                         Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Зміна кольору при наведенні -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF5A3C23" Offset="0.11"/>
+                                                    <GradientStop Color="#FF40A524" Offset="0.846"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="btmStartParser" Content="Parser" Margin="731,125,0,0" FontSize="9.8" 
+Foreground="Black" BorderBrush="#FF615DE4" BorderThickness="3" 
+FontFamily="Perpetua Titling MT" Click="StartParser_Click" 
+HorizontalAlignment="Left" Width="48" Height="47" VerticalAlignment="Top" 
+FontWeight="Bold" RenderTransformOrigin="0.574,-0.065">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF37A749" Offset="0.676"/>
+                                <GradientStop Color="#FFC74466" Offset="0.201"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FF615DE4"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" CornerRadius="20" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Зміна кольору при наведенні -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF5A3C23" Offset="0.11"/>
+                                                    <GradientStop Color="#FF40A524" Offset="0.846"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="btmConvertQuestiontoMongo" Content="Convert" Margin="10,10,0,0" FontSize="10" 
+Foreground="Black" BorderBrush="#FF08A9AD" BorderThickness="2" 
+FontFamily="Perpetua Titling MT" Click="ConvertQuestion_Click" 
+HorizontalAlignment="Left" Width="62" Height="60" VerticalAlignment="Top" 
+FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF59C865" Offset="0.3"/>
+                    <GradientStop Color="#FF2FAFAC" Offset="0.757"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF37A749" Offset="0.676"/>
+                                <GradientStop Color="#FFC74466" Offset="0.201"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FF615DE4"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" CornerRadius="25" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Зміна кольору при наведенні -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF1BDA2F" Offset="0.11"/>
+                                                    <GradientStop Color="#FF40A524" Offset="0.846"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+
+    </Grid>
+</Window>
