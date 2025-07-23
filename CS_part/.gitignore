@@ -1,9 +1,22 @@
 # === CS_part ===
-/CS_part/TDAPZ_Q&A/[Bb]in/
-/CS_part/TDAPZ_Q&A/[Oo]bj/
+
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+
+# User-specific files
+
 *.user
 *.suo
 *.cache
 *.pdb
 *.log
+*.csproj.user
 .vs/
