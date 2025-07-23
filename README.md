@@ -26,7 +26,8 @@ git clone https://github.com/6NataliePortman9/Parser-C-JavaScript.git
 cd Parser
 
 2. Build and run the C# project:
-cd CS_part
+
+cd ../CS_part
 
 dotnet build
 
